@@ -1,0 +1,17 @@
+<?php
+$finder = PhpCsFixer\Finder::create()
+    ->exclude('bootstrap/')
+    ->exclude('public/')
+    ->exclude('resources/')
+    ->exclude('storage/')
+    ->exclude('vendor/')
+    ->exclude('laradock/')
+    ->in(__DIR__)
+;
+return PhpCsFixer\Config::create()
+    ->setRules([
+        '@PSR2' => true,
+        'no_unused_imports' => true
+    ])
+    ->setFinder($finder)
+;

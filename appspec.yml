@@ -1,0 +1,22 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www
+hooks:
+  BeforeInstall:
+    - location: deploy_scripts/before_install.sh
+      timeout: 600
+      runas: root
+  AfterInstall:
+    - location: deploy_scripts/after_install.sh
+      timeout: 600
+      runas: root
+  ApplicationStart:
+    - location: deploy_scripts/application_start.sh
+      timeout: 1200
+      runas: root
+  ApplicationStop:
+    - location: deploy_scripts/application_stop.sh
+      timeout: 600
+      runas: root
